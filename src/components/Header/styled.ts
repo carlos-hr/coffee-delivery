@@ -7,6 +7,8 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 1rem;
+  max-width: 100%;
 `;
 
 export const ButtonsContainer = styled.div`
