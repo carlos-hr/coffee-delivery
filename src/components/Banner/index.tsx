@@ -8,7 +8,7 @@ import {
   Title,
   TitleContainer,
 } from "./styled";
-import coffee from "../../assets/banner-coffee.svg";
+import coffee from "../../assets/banner-coffee.png";
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
 
 const Banner = () => {

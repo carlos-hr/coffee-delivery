@@ -3,15 +3,20 @@ import bannerBackground from "../../assets/banner-background.svg";
 
 export const BannerContainer = styled.main`
   background-image: url(${bannerBackground});
-  height: 34rem;
   padding: 5.75rem 1rem;
   display: flex;
   justify-content: center;
   gap: 3.5rem;
+
+  > img {
+    height: 22.5rem;
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
 `;
 
 export const InfoContainer = styled.div`
-  height: 21.375rem;
   display: flex;
   flex-direction: column;
   gap: 4.125rem;
@@ -20,7 +25,6 @@ export const InfoContainer = styled.div`
 `;
 
 export const TitleContainer = styled.div`
-  height: 12rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -41,7 +45,8 @@ export const Subtitle = styled.p`
 
 export const ItemsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  /* grid-template-columns: repeat(2, 1fr); */
   row-gap: 1.25rem;
   column-gap: 2.5rem;
 `;

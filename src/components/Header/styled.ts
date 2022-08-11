@@ -25,6 +25,7 @@ export const BaseButton = styled.button`
   font-size: 0.875rem;
   display: flex;
   align-items: center;
+  cursor: pointer;
 `;
 
 export const LocationButton = styled(BaseButton)`
