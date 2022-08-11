@@ -10,6 +10,7 @@ import {
 } from "./styled";
 import coffee from "../../assets/banner-coffee.svg";
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
+
 const Banner = () => {
   return (
     <BannerContainer>
