@@ -58,10 +58,18 @@ export const Input = styled.input<InputProps>`
   &[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const InputContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 0.75rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;

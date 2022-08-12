@@ -36,6 +36,10 @@ export const ButtonsContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 0.75rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const PaymentButton = styled.button`
@@ -50,9 +54,4 @@ export const PaymentButton = styled.button`
   font-size: 0.75rem;
   white-space: nowrap;
   border-radius: 6px;
-  cursor: pointer;
-
-  :hover {
-    opacity: 0.8;
-  }
 `;

@@ -25,7 +25,6 @@ export const BaseButton = styled.button`
   font-size: 0.875rem;
   display: flex;
   align-items: center;
-  cursor: pointer;
 `;
 
 export const LocationButton = styled(BaseButton)`
@@ -41,8 +40,6 @@ export const CartButton = styled(BaseButton)`
   background: ${(props) => props.theme.primary_light};
   color: ${(props) => props.theme.primary_dark};
   justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s;
 
   svg path {
     fill: ${(props) => props.theme.primary_dark};
@@ -50,9 +47,5 @@ export const CartButton = styled(BaseButton)`
 
   svg circle {
     fill: ${(props) => props.theme.primary_dark};
-  }
-
-  &:hover {
-    opacity: 0.8;
   }
 `;

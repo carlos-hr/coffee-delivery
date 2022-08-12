@@ -3,6 +3,7 @@ import { useState } from "react";
 import {
   CoffeeDetails,
   CoffeeInfo,
+  ConfirmOrderContainer,
   OrderSummaryContainer,
   QuantityDetails,
 } from "./styled";
@@ -16,7 +17,10 @@ const OrderSummary = () => {
         <img src="https://i.postimg.cc/PfbMqW0j/Type-Americano.png" />
 
         <CoffeeDetails>
-          <p>Expresso Tradicional</p>
+          <span>
+            Expresso Tradicional
+            <p>R$9,90</p>
+          </span>
 
           <QuantityDetails>
             <div>
@@ -36,9 +40,20 @@ const OrderSummary = () => {
             </button>
           </QuantityDetails>
         </CoffeeDetails>
-
-        <div>R$9,90</div>
       </CoffeeInfo>
+
+      <ConfirmOrderContainer>
+        <span>
+          Total de itens <p>R$29,70</p>
+        </span>
+        <span>
+          Entrega <p>R$3,50</p>
+        </span>
+        <span className="total">
+          Total <p>R$33,20</p>
+        </span>
+        <button>CONFIRMAR PEDIDO</button>
+      </ConfirmOrderContainer>
     </OrderSummaryContainer>
   );
 };
