@@ -23,7 +23,6 @@ export const CoffeeInfo = styled.div`
   gap: 1.25rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid ${(props) => props.theme.base_button};
-
   img {
     width: 4rem;
   }
@@ -33,6 +32,18 @@ export const CoffeeDetails = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+
+  span {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    p {
+      font-weight: 700;
+      color: ${(props) => props.theme.base_text};
+      margin-left: 0.5rem;
+    }
+  }
 `;
 
 export const QuantityDetails = styled.div`

@@ -36,6 +36,10 @@ export const ButtonsContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 0.75rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const PaymentButton = styled.button`

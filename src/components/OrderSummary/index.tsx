@@ -17,7 +17,10 @@ const OrderSummary = () => {
         <img src="https://i.postimg.cc/PfbMqW0j/Type-Americano.png" />
 
         <CoffeeDetails>
-          <p>Expresso Tradicional</p>
+          <span>
+            Expresso Tradicional
+            <p>R$9,90</p>
+          </span>
 
           <QuantityDetails>
             <div>
@@ -37,8 +40,6 @@ const OrderSummary = () => {
             </button>
           </QuantityDetails>
         </CoffeeDetails>
-
-        <div>R$9,90</div>
       </CoffeeInfo>
 
       <ConfirmOrderContainer>
