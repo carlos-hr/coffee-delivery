@@ -14,17 +14,21 @@ export const Card = styled.main`
     margin-top: -1.25rem;
   }
 
-  > span {
-    padding: 0.25rem 0.5rem;
-    width: fit-content;
-    height: 1.3125rem;
-    background-color: ${(props) => props.theme.primary_light};
-    color: ${(props) => props.theme.primary_dark};
-    font-weight: 700;
-    font-size: 0.625rem;
-    line-height: 1.3;
-    border-radius: 100px;
-    margin-top: 0.75rem;
+  .badges {
+    display: flex;
+    gap: 0.25rem;
+    span {
+      padding: 0.25rem 0.5rem;
+      width: fit-content;
+      height: 1.3125rem;
+      background-color: ${(props) => props.theme.primary_light};
+      color: ${(props) => props.theme.primary_dark};
+      font-weight: 700;
+      font-size: 0.625rem;
+      line-height: 1.3;
+      border-radius: 100px;
+      margin-top: 0.75rem;
+    }
   }
 
   h3 {

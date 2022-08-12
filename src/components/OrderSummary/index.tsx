@@ -14,7 +14,103 @@ const OrderSummary = () => {
   return (
     <OrderSummaryContainer>
       <CoffeeInfo>
-        <img src="https://i.postimg.cc/PfbMqW0j/Type-Americano.png" />
+        <img
+          src="https://i.postimg.cc/PfbMqW0j/Type-Americano.png"
+          alt="aaaa"
+        />
+
+        <CoffeeDetails>
+          <span>
+            Expresso Tradicional
+            <p>R$9,90</p>
+          </span>
+
+          <QuantityDetails>
+            <div>
+              <Minus onClick={() => setQuantity((state) => state - 1)} />
+              <input
+                type="number"
+                value={quantity}
+                min={1}
+                onChange={(e) => setQuantity(Number(e.target.value))}
+              />
+              <Plus onClick={() => setQuantity((state) => state + 1)} />
+            </div>
+
+            <button>
+              <Trash size={16} />
+              REMOVER
+            </button>
+          </QuantityDetails>
+        </CoffeeDetails>
+      </CoffeeInfo>
+      <CoffeeInfo>
+        <img
+          src="https://i.postimg.cc/PfbMqW0j/Type-Americano.png"
+          alt="aaaa"
+        />
+
+        <CoffeeDetails>
+          <span>
+            Expresso Tradicional
+            <p>R$9,90</p>
+          </span>
+
+          <QuantityDetails>
+            <div>
+              <Minus onClick={() => setQuantity((state) => state - 1)} />
+              <input
+                type="number"
+                value={quantity}
+                min={1}
+                onChange={(e) => setQuantity(Number(e.target.value))}
+              />
+              <Plus onClick={() => setQuantity((state) => state + 1)} />
+            </div>
+
+            <button>
+              <Trash size={16} />
+              REMOVER
+            </button>
+          </QuantityDetails>
+        </CoffeeDetails>
+      </CoffeeInfo>
+      <CoffeeInfo>
+        <img
+          src="https://i.postimg.cc/PfbMqW0j/Type-Americano.png"
+          alt="aaaa"
+        />
+
+        <CoffeeDetails>
+          <span>
+            Expresso Tradicional
+            <p>R$9,90</p>
+          </span>
+
+          <QuantityDetails>
+            <div>
+              <Minus onClick={() => setQuantity((state) => state - 1)} />
+              <input
+                type="number"
+                value={quantity}
+                min={1}
+                onChange={(e) => setQuantity(Number(e.target.value))}
+              />
+              <Plus onClick={() => setQuantity((state) => state + 1)} />
+            </div>
+
+            <button>
+              <Trash size={16} />
+              REMOVER
+            </button>
+          </QuantityDetails>
+        </CoffeeDetails>
+      </CoffeeInfo>
+      <CoffeeInfo>
+        <img
+          src="https://i.postimg.cc/PfbMqW0j/Type-Americano.png"
+          alt="aaaa"
+        />
 
         <CoffeeDetails>
           <span>

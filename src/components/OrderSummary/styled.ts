@@ -15,6 +15,10 @@ export const OrderSummaryContainer = styled.main`
       stroke: ${(props) => props.theme.secondary};
     }
   }
+
+  div + div {
+    padding-top: 1.5rem;
+  }
 `;
 
 export const CoffeeInfo = styled.div`
@@ -23,6 +27,7 @@ export const CoffeeInfo = styled.div`
   gap: 1.25rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid ${(props) => props.theme.base_button};
+
   img {
     width: 4rem;
   }
@@ -94,7 +99,6 @@ export const QuantityDetails = styled.div`
 export const ConfirmOrderContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 1.5rem;
   gap: 0.75rem;
 
   > span {
