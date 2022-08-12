@@ -6,7 +6,7 @@ import {
 } from "./styled";
 import logo from "../../assets/logo.svg";
 import mapPin from "../../assets/map-pin.svg";
-import { ShoppingCart } from "phosphor-react";
+import { ShoppingCartSimple } from "phosphor-react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -21,7 +21,7 @@ const Header = () => {
           Porto Alegre, RS
         </LocationButton>
         <CartButton>
-          <ShoppingCart size={22} />
+          <ShoppingCartSimple size={22} />
         </CartButton>
       </ButtonsContainer>
     </HeaderContainer>

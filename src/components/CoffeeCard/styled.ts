@@ -113,9 +113,6 @@ export const PriceContainer = styled.div`
     cursor: pointer;
 
     svg {
-      height: 1.375rem;
-      width: 1.375rem;
-
       path {
         fill: ${(props) => props.theme.white};
       }

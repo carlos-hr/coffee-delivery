@@ -1,10 +1,11 @@
 import { Minus, Plus, ShoppingCartSimple } from "phosphor-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, PriceContainer } from "./styled";
 
 const CoffeeCard = () => {
   const [quantity, setQuantity] = useState(1);
-
+  const navigate = useNavigate();
   return (
     <Card>
       <img src="https://i.postimg.cc/PfbMqW0j/Type-Americano.png" />
@@ -28,8 +29,8 @@ const CoffeeCard = () => {
           <Plus onClick={() => setQuantity((state) => state + 1)} />
         </div>
 
-        <button>
-          <ShoppingCartSimple />
+        <button onClick={() => navigate("/checkout")}>
+          <ShoppingCartSimple size={22} />
         </button>
       </PriceContainer>
     </Card>
