@@ -18,6 +18,7 @@ export const CheckoutTitle = styled.div`
   font-weight: 400;
   display: flex;
   gap: 0.5rem;
+  padding-bottom: 2rem;
 
   svg path,
   circle,

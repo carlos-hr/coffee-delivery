@@ -6,4 +6,8 @@ export const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+
+  > div {
+    border-radius: 6px;
+  }
 `;
