@@ -46,7 +46,6 @@ export const Subtitle = styled.p`
 export const ItemsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  /* grid-template-columns: repeat(2, 1fr); */
   row-gap: 1.25rem;
   column-gap: 2.5rem;
 `;
@@ -77,7 +76,7 @@ export const IconContainer = styled.div<IconContainerProps>`
   color: ${(props) => props.theme.white};
 `;
 
-export const GridItem = styled.p`
+export const GridItem = styled.div`
   display: flex;
   gap: 0.75rem;
   align-items: center;

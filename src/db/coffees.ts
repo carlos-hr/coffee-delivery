@@ -5,6 +5,7 @@ export const coffes = [
     description: "O tradicional café feito com água quente e grãos moídos",
     price: 9.9,
     image: "https://i.postimg.cc/0NJY1D7h/Type-Expresso.png",
+    badges: ["tradicional"],
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ export const coffes = [
     description: "Meio a meio de expresso tradicional com leite vaporizado",
     price: 9.9,
     image: "https://i.postimg.cc/vHQtx1d6/Type-Caf-com-Leite.png",
+    badges: ["tradicional", "com leite"],
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ export const coffes = [
     description: "Café expresso com calda de chocolate, pouco leite e espuma",
     price: 9.9,
     image: "https://i.postimg.cc/5ym5kJ80/Type-Mochaccino.png",
+    badges: ["tradicional", "com leite"],
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ export const coffes = [
     description: "Bebida preparada com grãos de café árabe e especiarias",
     price: 9.9,
     image: "https://i.postimg.cc/DyBdr22p/Type-rabe.png",
+    badges: ["especial"],
   },
   {
     id: 5,
@@ -33,6 +37,7 @@ export const coffes = [
     description: "Expresso diluído, menos intenso que o tradicional",
     price: 9.9,
     image: "https://i.postimg.cc/PfbMqW0j/Type-Americano.png",
+    badges: ["tradicional"],
   },
   {
     id: 6,
@@ -41,6 +46,7 @@ export const coffes = [
       "Uma dose de café expresso com o dobro de leite e espuma cremosa",
     price: 9.9,
     image: "https://i.postimg.cc/gkk3kfvV/Type-Latte.png",
+    badges: ["tradicional", "com leite"],
   },
   {
     id: 7,
@@ -48,6 +54,7 @@ export const coffes = [
     description: "Bebida feita com chocolate dissolvido no leite quente e café",
     price: 9.9,
     image: "https://i.postimg.cc/zvqKhQ41/Type-Chocolate-Quente.png",
+    badges: ["especial", "com leite"],
   },
   {
     id: 8,
@@ -55,6 +62,7 @@ export const coffes = [
     description: "Bebida a base de café, uísque irlandês, açúcar e chantilly",
     price: 9.9,
     image: "https://i.postimg.cc/NGx1tgrG/Type-Irland-s.png",
+    badges: ["especial", "alcoólico"],
   },
   {
     id: 9,
@@ -62,6 +70,7 @@ export const coffes = [
     description: "Café expresso tradicional com espuma cremosa",
     price: 9.9,
     image: "https://i.postimg.cc/rmXSVsJs/Type-Expresso-Cremoso.png",
+    badges: ["tradicional"],
   },
   {
     id: 10,
@@ -70,6 +79,7 @@ export const coffes = [
       "Bebida com canela feita de doses iguais de café, leite e espuma",
     price: 9.9,
     image: "https://i.postimg.cc/pLSfSq5D/Type-Capuccino.png",
+    badges: ["tradicional", "com leite"],
   },
   {
     id: 11,
@@ -78,6 +88,7 @@ export const coffes = [
       "Drink gelado de café expresso com rum, creme de leite e hortelã",
     price: 9.9,
     image: "https://i.postimg.cc/RF7wNmsR/Type-Cubano.png",
+    badges: ["especial", "alcoólico", "gelado"],
   },
   {
     id: 12,
@@ -85,6 +96,7 @@ export const coffes = [
     description: "Bebida preparada com café expresso e cubos de gelo",
     price: 9.9,
     image: "https://i.postimg.cc/GmtPzZtL/Type-Caf-Gelado.png",
+    badges: ["tradicional", "gelado"],
   },
   {
     id: 13,
@@ -93,6 +105,7 @@ export const coffes = [
       "Café expresso misturado com um pouco de leite quente e espuma",
     price: 9.9,
     image: "https://i.postimg.cc/YqnY4b3J/Type-Macchiato.png",
+    badges: ["tradicional", "com leite"],
   },
   {
     id: 14,
@@ -100,5 +113,6 @@ export const coffes = [
     description: "Bebida adocicada preparada com café e leite de coco",
     price: 9.9,
     image: "https://i.postimg.cc/XqxFk80B/Type-Havaiano.png",
+    badges: ["especial"],
   },
 ];

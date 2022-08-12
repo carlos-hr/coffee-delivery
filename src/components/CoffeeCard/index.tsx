@@ -3,19 +3,36 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, PriceContainer } from "./styled";
 
-const CoffeeCard = () => {
+interface CoffeeCardProps {
+  coffee: {
+    name: string;
+    description: string;
+    price: number;
+    image: string;
+    badges: string[];
+  };
+}
+
+const CoffeeCard = ({ coffee }: CoffeeCardProps) => {
+  const { name, description, price, image, badges } = coffee;
+  const formatedPrice = price.toString().replace(".", ",").padEnd(4, "0");
   const [quantity, setQuantity] = useState(1);
   const navigate = useNavigate();
+
   return (
     <Card>
-      <img src="https://i.postimg.cc/PfbMqW0j/Type-Americano.png" />
-      <span>TRADICIONAL</span>
-      <h3>Expresso Tradicional</h3>
-      <p>O tradicional café feito com água quente e grãos moídos</p>
+      <img src={image} alt={name} />
+      <div className="badges">
+        {badges.map((badge) => (
+          <span key={badge}>{badge.toUpperCase()}</span>
+        ))}
+      </div>
+      <h3>{name}</h3>
+      <p>{description}</p>
 
       <PriceContainer>
         <span>
-          R$<p>9,90</p>
+          R$<p>{formatedPrice}</p>
         </span>
 
         <div>
@@ -23,7 +40,6 @@ const CoffeeCard = () => {
           <input
             type="number"
             value={quantity}
-            min={1}
             onChange={(e) => setQuantity(Number(e.target.value))}
           />
           <Plus onClick={() => setQuantity((state) => state + 1)} />
