@@ -7,6 +7,15 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
 
+    button {
+        cursor: pointer;
+        transition: all 0.3s;
+        
+        :hover {
+            opacity: 0.8;
+        }
+    }
+
     body,
     input,
     textarea,

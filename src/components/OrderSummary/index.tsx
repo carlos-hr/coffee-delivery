@@ -3,6 +3,7 @@ import { useState } from "react";
 import {
   CoffeeDetails,
   CoffeeInfo,
+  ConfirmOrderContainer,
   OrderSummaryContainer,
   QuantityDetails,
 } from "./styled";
@@ -39,6 +40,19 @@ const OrderSummary = () => {
 
         <div>R$9,90</div>
       </CoffeeInfo>
+
+      <ConfirmOrderContainer>
+        <span>
+          Total de itens <p>R$29,70</p>
+        </span>
+        <span>
+          Entrega <p>R$3,50</p>
+        </span>
+        <span className="total">
+          Total <p>R$33,20</p>
+        </span>
+        <button>CONFIRMAR PEDIDO</button>
+      </ConfirmOrderContainer>
     </OrderSummaryContainer>
   );
 };

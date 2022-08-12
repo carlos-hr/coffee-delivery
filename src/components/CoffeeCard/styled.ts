@@ -110,7 +110,6 @@ export const PriceContainer = styled.div`
     background-color: ${(props) => props.theme.secondary_dark};
     border-radius: 6px;
     color: ${(props) => props.theme.white};
-    cursor: pointer;
 
     svg {
       path {

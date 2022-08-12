@@ -50,9 +50,4 @@ export const PaymentButton = styled.button`
   font-size: 0.75rem;
   white-space: nowrap;
   border-radius: 6px;
-  cursor: pointer;
-
-  :hover {
-    opacity: 0.8;
-  }
 `;

@@ -77,10 +77,38 @@ export const QuantityDetails = styled.div`
     font-size: 0.75rem;
     white-space: nowrap;
     border-radius: 6px;
-    cursor: pointer;
+  }
+`;
 
-    :hover {
-      opacity: 0.8;
+export const ConfirmOrderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+  gap: 0.75rem;
+
+  > span {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+
+    p {
+      font-size: 1rem;
     }
+
+    &.total {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+  }
+
+  button {
+    height: 2.875rem;
+    text-align: center;
+    color: ${(props) => props.theme.white};
+    background-color: ${(props) => props.theme.primary};
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    border: 0;
   }
 `;
