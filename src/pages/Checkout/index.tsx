@@ -1,4 +1,4 @@
-import { CheckoutForm } from "../../components";
+import { CheckoutForm, OrderSummary } from "../../components";
 import {
   CheckoutContainer,
   FormContainer,
@@ -13,7 +13,10 @@ const Checkout = () => {
         <CheckoutForm />
       </FormContainer>
 
-      <OrderSummaryContainery>Cafés selecionados</OrderSummaryContainery>
+      <OrderSummaryContainery>
+        Cafés selecionados
+        <OrderSummary />
+      </OrderSummaryContainery>
     </CheckoutContainer>
   );
 };
