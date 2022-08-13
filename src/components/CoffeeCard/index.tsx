@@ -1,10 +1,13 @@
 import { Minus, Plus, ShoppingCartSimple } from "phosphor-react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { CartContext } from "../../contexts/CartContext";
+import { formatPrice } from "../../utils";
 import { Card, PriceContainer } from "./styled";
 
 interface CoffeeCardProps {
   coffee: {
+    id: number;
     name: string;
     description: string;
     price: number;
@@ -14,10 +17,22 @@ interface CoffeeCardProps {
 }
 
 const CoffeeCard = ({ coffee }: CoffeeCardProps) => {
-  const { name, description, price, image, badges } = coffee;
-  const formatedPrice = price.toString().replace(".", ",").padEnd(4, "0");
-  const [quantity, setQuantity] = useState(1);
+  const { id, name, description, price, image, badges } = coffee;
+  const { cartState, handleAddItem, handleRemoveItem } =
+    useContext(CartContext);
+
+  const formatedPrice = formatPrice(price);
   const navigate = useNavigate();
+
+  const coffeeInCart = cartState.cart.find((cartItem) => cartItem.id === id);
+  const inCartQuantity = coffeeInCart?.quantity || 0;
+  const [inputQuantity, setInputQuantity] = useState(inCartQuantity);
+
+  const data = {
+    id,
+    state: inputQuantity,
+    setState: setInputQuantity,
+  };
 
   return (
     <Card>
@@ -36,13 +51,13 @@ const CoffeeCard = ({ coffee }: CoffeeCardProps) => {
         </span>
 
         <div>
-          <Minus onClick={() => setQuantity((state) => state - 1)} />
+          <Minus onClick={() => handleRemoveItem({ data })} />
           <input
             type="number"
-            value={quantity}
-            onChange={(e) => setQuantity(Number(e.target.value))}
+            value={inputQuantity}
+            onChange={(e) => setInputQuantity(Number(e.target.value))}
           />
-          <Plus onClick={() => setQuantity((state) => state + 1)} />
+          <Plus onClick={() => handleAddItem({ data })} />
         </div>
 
         <button onClick={() => navigate("/checkout")}>

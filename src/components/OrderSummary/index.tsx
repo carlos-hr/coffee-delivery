@@ -1,155 +1,43 @@
-import { Minus, Plus, Trash } from "phosphor-react";
-import { useState } from "react";
-import {
-  CoffeeDetails,
-  CoffeeInfo,
-  ConfirmOrderContainer,
-  OrderSummaryContainer,
-  QuantityDetails,
-} from "./styled";
+import { useContext } from "react";
+import { CartContext } from "../../contexts/CartContext";
+import { formatPrice } from "../../utils";
+import OrderDetail from "./OrderDetail";
+import { ConfirmOrderContainer, OrderSummaryContainer } from "./styled";
 
 const OrderSummary = () => {
-  const [quantity, setQuantity] = useState(1);
+  const { cartState, subtotal } = useContext(CartContext);
+  const deliveryFee = 5;
+  const total = subtotal + deliveryFee;
 
   return (
     <OrderSummaryContainer>
-      <CoffeeInfo>
-        <img
-          src="https://i.postimg.cc/PfbMqW0j/Type-Americano.png"
-          alt="aaaa"
-        />
-
-        <CoffeeDetails>
-          <span>
-            Expresso Tradicional
-            <p>R$9,90</p>
-          </span>
-
-          <QuantityDetails>
-            <div>
-              <Minus onClick={() => setQuantity((state) => state - 1)} />
-              <input
-                type="number"
-                value={quantity}
-                min={1}
-                onChange={(e) => setQuantity(Number(e.target.value))}
-              />
-              <Plus onClick={() => setQuantity((state) => state + 1)} />
-            </div>
-
-            <button>
-              <Trash size={16} />
-              REMOVER
-            </button>
-          </QuantityDetails>
-        </CoffeeDetails>
-      </CoffeeInfo>
-      <CoffeeInfo>
-        <img
-          src="https://i.postimg.cc/PfbMqW0j/Type-Americano.png"
-          alt="aaaa"
-        />
-
-        <CoffeeDetails>
-          <span>
-            Expresso Tradicional
-            <p>R$9,90</p>
-          </span>
-
-          <QuantityDetails>
-            <div>
-              <Minus onClick={() => setQuantity((state) => state - 1)} />
-              <input
-                type="number"
-                value={quantity}
-                min={1}
-                onChange={(e) => setQuantity(Number(e.target.value))}
-              />
-              <Plus onClick={() => setQuantity((state) => state + 1)} />
-            </div>
-
-            <button>
-              <Trash size={16} />
-              REMOVER
-            </button>
-          </QuantityDetails>
-        </CoffeeDetails>
-      </CoffeeInfo>
-      <CoffeeInfo>
-        <img
-          src="https://i.postimg.cc/PfbMqW0j/Type-Americano.png"
-          alt="aaaa"
-        />
-
-        <CoffeeDetails>
-          <span>
-            Expresso Tradicional
-            <p>R$9,90</p>
-          </span>
-
-          <QuantityDetails>
-            <div>
-              <Minus onClick={() => setQuantity((state) => state - 1)} />
-              <input
-                type="number"
-                value={quantity}
-                min={1}
-                onChange={(e) => setQuantity(Number(e.target.value))}
-              />
-              <Plus onClick={() => setQuantity((state) => state + 1)} />
-            </div>
-
-            <button>
-              <Trash size={16} />
-              REMOVER
-            </button>
-          </QuantityDetails>
-        </CoffeeDetails>
-      </CoffeeInfo>
-      <CoffeeInfo>
-        <img
-          src="https://i.postimg.cc/PfbMqW0j/Type-Americano.png"
-          alt="aaaa"
-        />
-
-        <CoffeeDetails>
-          <span>
-            Expresso Tradicional
-            <p>R$9,90</p>
-          </span>
-
-          <QuantityDetails>
-            <div>
-              <Minus onClick={() => setQuantity((state) => state - 1)} />
-              <input
-                type="number"
-                value={quantity}
-                min={1}
-                onChange={(e) => setQuantity(Number(e.target.value))}
-              />
-              <Plus onClick={() => setQuantity((state) => state + 1)} />
-            </div>
-
-            <button>
-              <Trash size={16} />
-              REMOVER
-            </button>
-          </QuantityDetails>
-        </CoffeeDetails>
-      </CoffeeInfo>
-
-      <ConfirmOrderContainer>
-        <span>
-          Total de itens <p>R$29,70</p>
-        </span>
-        <span>
-          Entrega <p>R$3,50</p>
-        </span>
-        <span className="total">
-          Total <p>R$33,20</p>
-        </span>
-        <button>CONFIRMAR PEDIDO</button>
-      </ConfirmOrderContainer>
+      {cartState.cart.length > 0 ? (
+        <>
+          {cartState.cart.map((cartItem) => (
+            <OrderDetail
+              key={cartItem.id}
+              id={cartItem.id}
+              qtyInCart={cartItem.quantity}
+            />
+          ))}
+          <ConfirmOrderContainer>
+            <span>
+              Total de itens <p>R${formatPrice(subtotal)}</p>
+            </span>
+            <span>
+              Entrega <p>R${formatPrice(deliveryFee)}</p>
+            </span>
+            <span className="total">
+              Total <p>R${formatPrice(total)}</p>
+            </span>
+            <button>CONFIRMAR PEDIDO</button>
+          </ConfirmOrderContainer>
+        </>
+      ) : (
+        <p className="empty-cart">
+          Você ainda não selecionou nenhum de nossos cafés :(
+        </p>
+      )}
     </OrderSummaryContainer>
   );
 };

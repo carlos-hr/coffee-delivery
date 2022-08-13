@@ -39,8 +39,28 @@ export const CartButton = styled(BaseButton)`
   width: 2.375rem;
   background: ${(props) => props.theme.primary_light};
   color: ${(props) => props.theme.primary_dark};
-  justify-content: center;
+  position: absolute;
+  margin-left: 9.6875rem;
 
+  span {
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+    background: ${(props) => props.theme.primary_dark};
+    color: ${(props) => props.theme.white};
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+  }
+
+  svg {
+    width: 100%;
+  }
   svg path {
     fill: ${(props) => props.theme.primary_dark};
   }

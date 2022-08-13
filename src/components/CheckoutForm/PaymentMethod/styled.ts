@@ -54,4 +54,9 @@ export const PaymentButton = styled.button`
   font-size: 0.75rem;
   white-space: nowrap;
   border-radius: 6px;
+
+  &.selected {
+    background-color: ${(props) => props.theme.secondary_light};
+    border: 1px solid ${(props) => props.theme.secondary};
+  }
 `;

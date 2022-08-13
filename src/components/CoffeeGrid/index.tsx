@@ -1,11 +1,11 @@
-import { coffes } from "../../db/coffees";
+import { coffees } from "../../db/coffees";
 import CoffeeCard from "../CoffeeCard";
 import { MainContainer } from "./styled";
 
 const CoffeeGrid = () => {
   return (
     <MainContainer>
-      {coffes.map((coffee) => (
+      {coffees.map((coffee) => (
         <CoffeeCard key={coffee.id} coffee={coffee} />
       ))}
     </MainContainer>
