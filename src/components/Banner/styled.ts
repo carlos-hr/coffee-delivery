@@ -3,6 +3,8 @@ import bannerBackground from "../../assets/banner-background.svg";
 
 export const BannerContainer = styled.main`
   background-image: url(${bannerBackground});
+  background-repeat: no-repeat;
+  background-size: cover;
   padding: 5.75rem 1rem;
   display: flex;
   justify-content: center;
@@ -13,6 +15,11 @@ export const BannerContainer = styled.main`
     @media (max-width: 768px) {
       display: none;
     }
+  }
+
+  @media (min-width: 1440px) {
+    justify-content: space-evenly;
+    gap: 0;
   }
 `;
 

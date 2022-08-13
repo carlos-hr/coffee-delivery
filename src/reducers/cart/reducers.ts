@@ -9,7 +9,7 @@ export interface CartItem {
 }
 
 export interface CartState {
-  cart: CartItem[] | [];
+  cart: CartItem[];
 }
 
 export function cartReducers(state: CartState, action: any) {
@@ -35,6 +35,17 @@ export function cartReducers(state: CartState, action: any) {
         break;
       }
       case ActionTypes.deleteCartItem: {
+        const { payload } = action;
+        const coffeeIndex = draft.cart.findIndex(
+          (coffee: CartItem) => coffee.id === payload.id
+        );
+
+        if (coffeeIndex >= 0) {
+          draft.cart = state.cart.filter(
+            (cartItem: CartItem) => cartItem.id !== payload.id
+          );
+          return;
+        }
         return state;
       }
       case ActionTypes.removeCartItem: {
@@ -49,6 +60,7 @@ export function cartReducers(state: CartState, action: any) {
             draft.cart = state.cart.filter(
               (cartItem: CartItem) => cartItem.id !== payload.id
             );
+
             return;
           } else {
             draft.cart[coffeeIndex].quantity--;

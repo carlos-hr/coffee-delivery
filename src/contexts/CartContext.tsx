@@ -7,9 +7,10 @@ import {
 import { cartReducers, CartState } from "../reducers/cart/reducers";
 
 interface CartContextData {
-  cart: CartState | [];
+  cartState: CartState;
+  cartQuantity: number;
   addCartItem: (id: number) => void;
-  deleteCartItem: () => void;
+  deleteCartItem: (id: number) => void;
   removeCartItem: (id: number) => void;
 }
 
@@ -20,25 +21,36 @@ interface CartContextProviderProps {
 }
 
 export const CartContextProvider = ({ children }: CartContextProviderProps) => {
-  const [cart, dispatch] = useReducer(cartReducers, {
+  const [cartState, dispatch] = useReducer(cartReducers, {
     cart: [],
   });
-  console.log(cart);
+
   function addCartItem(id: number) {
     dispatch(addCartItemAction(id));
   }
 
-  function deleteCartItem() {
-    dispatch(deleteCartItemAction());
+  function deleteCartItem(id: number) {
+    dispatch(deleteCartItemAction(id));
   }
 
   function removeCartItem(id: number) {
     dispatch(removeCartItemAction(id));
   }
 
+  const cartQuantity = cartState.cart.reduce((acc: any, state) => {
+    acc += state.quantity;
+    return acc;
+  }, 0);
+
   return (
     <CartContext.Provider
-      value={{ addCartItem, cart, deleteCartItem, removeCartItem }}
+      value={{
+        addCartItem,
+        cartState,
+        cartQuantity,
+        deleteCartItem,
+        removeCartItem,
+      }}
     >
       {children}
     </CartContext.Provider>

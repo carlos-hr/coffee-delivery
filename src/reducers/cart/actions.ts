@@ -1,5 +1,3 @@
-import { CartItem } from "./reducers";
-
 export enum ActionTypes {
   addCartItem = "ADD_CART_ITEM",
   deleteCartItem = "DELETE_CART_ITEM",
@@ -15,9 +13,12 @@ export function addCartItemAction(id: number) {
   };
 }
 
-export function deleteCartItemAction() {
+export function deleteCartItemAction(id: number) {
   return {
     type: ActionTypes.deleteCartItem,
+    payload: {
+      id,
+    },
   };
 }
 
