@@ -2,6 +2,7 @@ import { Minus, Plus, ShoppingCartSimple } from "phosphor-react";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext";
+import { formatPrice } from "../../utils";
 import { Card, PriceContainer } from "./styled";
 
 interface CoffeeCardProps {
@@ -17,27 +18,21 @@ interface CoffeeCardProps {
 
 const CoffeeCard = ({ coffee }: CoffeeCardProps) => {
   const { id, name, description, price, image, badges } = coffee;
-  const { cartState, addCartItem, removeCartItem } = useContext(CartContext);
+  const { cartState, handleAddItem, handleRemoveItem } =
+    useContext(CartContext);
 
-  const formatedPrice = price.toString().replace(".", ",").padEnd(4, "0");
+  const formatedPrice = formatPrice(price);
   const navigate = useNavigate();
 
   const coffeeInCart = cartState.cart.find((cartItem) => cartItem.id === id);
   const inCartQuantity = coffeeInCart?.quantity || 0;
   const [inputQuantity, setInputQuantity] = useState(inCartQuantity);
 
-  function handleAddItem() {
-    setInputQuantity((state) => state + 1);
-    addCartItem(id);
-  }
-
-  function handleRemoveItem() {
-    if (inputQuantity >= 1) {
-      setInputQuantity((state) => state - 1);
-      removeCartItem(id);
-    }
-    return;
-  }
+  const data = {
+    id,
+    state: inputQuantity,
+    setState: setInputQuantity,
+  };
 
   return (
     <Card>
@@ -56,13 +51,13 @@ const CoffeeCard = ({ coffee }: CoffeeCardProps) => {
         </span>
 
         <div>
-          <Minus onClick={handleRemoveItem} />
+          <Minus onClick={() => handleRemoveItem({ data })} />
           <input
             type="number"
             value={inputQuantity}
             onChange={(e) => setInputQuantity(Number(e.target.value))}
           />
-          <Plus onClick={handleAddItem} />
+          <Plus onClick={() => handleAddItem({ data })} />
         </div>
 
         <button onClick={() => navigate("/checkout")}>

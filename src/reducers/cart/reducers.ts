@@ -1,5 +1,5 @@
 import produce from "immer";
-import { coffes } from "../../db/coffees";
+import { coffees } from "../../db/coffees";
 import { ActionTypes } from "./actions";
 
 export interface CartItem {
@@ -25,7 +25,7 @@ export function cartReducers(state: CartState, action: any) {
         if (coffeeIndex >= 0) {
           draft.cart[coffeeIndex].quantity++;
         } else {
-          const coffee = coffes.find((coffee) => coffee.id === payload.id);
+          const coffee = coffees.find((coffee) => coffee.id === payload.id);
           draft.cart.push({
             id: coffee!.id,
             quantity: 1,
