@@ -20,7 +20,7 @@ const PaymentMethod = () => {
       </PaymentsTitle>
 
       <ButtonsContainer>
-        <PaymentButton className="selected">
+        <PaymentButton>
           <CreditCard size={22} />
           CARTÃO DE CRÉDITO
         </PaymentButton>
