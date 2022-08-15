@@ -19,14 +19,6 @@ export const OrderSummaryContainer = styled.main`
   div + div {
     padding-top: 1.5rem;
   }
-
-  .empty-cart {
-    font-family: "Baloo 2";
-    font-size: 1.125rem;
-    font-weight: 700;
-    width: 100%;
-    text-align: center;
-  }
 `;
 
 export const ConfirmOrderContainer = styled.div`

@@ -62,6 +62,10 @@ export const Input = styled.input<InputProps>`
   @media (max-width: 768px) {
     width: 100%;
   }
+
+  :focus {
+    border: 1px solid ${(props) => props.theme.primary};
+  }
 `;
 
 export const InputContainer = styled.div`

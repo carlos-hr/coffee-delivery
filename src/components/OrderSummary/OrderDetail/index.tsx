@@ -1,7 +1,7 @@
 import { Minus, Plus, Trash } from "phosphor-react";
-import { useContext, useState } from "react";
-import { CartContext } from "../../../contexts/CartContext";
+import { useState } from "react";
 import { coffees } from "../../../db/coffees";
+import { useCart } from "../../../hooks/useCart";
 import { formatPrice } from "../../../utils";
 import { CoffeeDetails, CoffeeInfo, QuantityDetails } from "./styled";
 
@@ -17,8 +17,7 @@ const OrderDetail = ({ id, qtyInCart }: OrderDetailsProps) => {
   const formatedPrice = formatPrice(price);
   const [quantity, setQuantity] = useState(qtyInCart);
 
-  const { deleteCartItem, handleAddItem, handleRemoveItem } =
-    useContext(CartContext);
+  const { deleteCartItem, handleAddItem, handleRemoveItem } = useCart();
 
   const data = {
     id,
