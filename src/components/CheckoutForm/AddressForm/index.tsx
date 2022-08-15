@@ -10,7 +10,8 @@ import { useState } from "react";
 import { api } from "../../../services/api";
 
 const AddressForm = () => {
-  const { register, formState, setValue } = useFormContext();
+  const { register } = useFormContext();
+  const [isValidPostalCode, setIsValidPostalCode] = useState(false);
   const [address, setAddress] = useState({
     street: "",
     county: "",
@@ -18,9 +19,11 @@ const AddressForm = () => {
     state: "",
   });
 
-  const onChangePostalCode = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangePostalCode = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ): Promise<void> => {
     const postalCode = e.target.value;
-
+    setIsValidPostalCode(false);
     if (postalCode && postalCode.length === 8) {
       await api.get(`/${postalCode}/json`).then((res) => {
         const { bairro, localidade, logradouro, uf } = res.data;
@@ -30,11 +33,17 @@ const AddressForm = () => {
           city: localidade,
           state: uf,
         });
+
+        setIsValidPostalCode(true);
       });
     }
   };
 
-  console.log(address);
+  function onChangeAddress(e: React.ChangeEvent<HTMLInputElement>) {
+    const { name, value } = e.target;
+    setAddress({ ...address, [name]: value });
+  }
+
   return (
     <AddressFormContainer>
       <CheckoutTitle>
@@ -49,9 +58,8 @@ const AddressForm = () => {
         placeholder="CEP"
         type="text"
         inputMode="numeric"
-        required
         maxLength={8}
-        {...register("postalCode", { pattern: /^[0-9]{5}-[0-9]{3}$/ })}
+        {...register("postalCode")}
         onChange={onChangePostalCode}
       />
 
@@ -59,8 +67,10 @@ const AddressForm = () => {
         width="100%"
         placeholder="Rua"
         type="text"
-        value={address.city || ""}
         {...register("street")}
+        value={address.street}
+        onChange={onChangeAddress}
+        readOnly={isValidPostalCode}
       />
 
       <InputContainer>
@@ -85,24 +95,30 @@ const AddressForm = () => {
           width="12.5rem"
           placeholder="Bairro"
           type="text"
-          value={address.county || ""}
           {...register("county")}
+          value={address.county}
+          onChange={onChangeAddress}
+          readOnly={isValidPostalCode}
         />
 
         <Input
           width="17.25rem"
           placeholder="Cidade"
           type="text"
-          value={address.city || ""}
           {...register("city")}
+          value={address.city}
+          onChange={onChangeAddress}
+          readOnly={isValidPostalCode}
         />
 
         <Input
           width="3.75rem"
           placeholder="UF"
           type="text"
-          value={address.state || ""}
           {...register("state")}
+          value={address.state}
+          onChange={onChangeAddress}
+          readOnly={isValidPostalCode}
         />
       </InputContainer>
     </AddressFormContainer>

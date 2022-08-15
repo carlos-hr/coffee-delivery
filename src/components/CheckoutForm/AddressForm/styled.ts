@@ -66,6 +66,12 @@ export const Input = styled.input<InputProps>`
   :focus {
     border: 1px solid ${(props) => props.theme.primary};
   }
+
+  &:read-only {
+    color: ${(props) => props.theme.base_label};
+    background: ${(props) => props.theme.base_hover};
+    cursor: not-allowed;
+  }
 `;
 
 export const InputContainer = styled.div`
