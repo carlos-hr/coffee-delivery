@@ -1,16 +1,7 @@
 import produce from "immer";
+import { CartState, CartItem } from "../../@types/cart";
 import { coffees } from "../../db/coffees";
 import { ActionTypes } from "./actions";
-
-export interface CartItem {
-  id: number;
-  quantity: number;
-  price: number;
-}
-
-export interface CartState {
-  cart: CartItem[];
-}
 
 export function cartReducers(state: CartState, action: any) {
   return produce(state, (draft: any) => {
