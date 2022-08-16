@@ -6,11 +6,11 @@ import {
   InputContainer,
 } from "./styled";
 import { useFormContext } from "react-hook-form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { api } from "../../../services/api";
 
 const AddressForm = () => {
-  const { register } = useFormContext();
+  const { register, setValue, getValues } = useFormContext();
   const [isValidPostalCode, setIsValidPostalCode] = useState(false);
   const [address, setAddress] = useState({
     street: "",
@@ -42,7 +42,15 @@ const AddressForm = () => {
   function onChangeAddress(e: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;
     setAddress({ ...address, [name]: value });
+    console.log("aaa");
   }
+
+  useEffect(() => {
+    const addressInfo = Object.entries(address);
+    addressInfo.forEach((property) => {
+      setValue(property[0], property[1]);
+    });
+  }, [address, setValue]);
 
   return (
     <AddressFormContainer>
@@ -79,7 +87,7 @@ const AddressForm = () => {
           placeholder="Número"
           type="number"
           inputMode="numeric"
-          {...register("number")}
+          {...register("number", { valueAsNumber: true })}
         />
 
         <Input
