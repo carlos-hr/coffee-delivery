@@ -11,7 +11,6 @@ import {
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as zod from "zod";
-import { useEffect } from "react";
 
 const addressFormSchema = zod.object({
   postalCode: zod
@@ -23,6 +22,7 @@ const addressFormSchema = zod.object({
   city: zod.string(),
   state: zod.string(),
   street: zod.string(),
+  paymentMethod: zod.string().min(1),
 });
 
 type AddressFormData = zod.infer<typeof addressFormSchema>;
@@ -32,7 +32,7 @@ const Checkout = () => {
   const navigate = useNavigate();
 
   function handleCheckoutForm(data: any) {
-    console.log(data);
+    console.log("submit", data);
   }
 
   const checkoutForm = useForm({

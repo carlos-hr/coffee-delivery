@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import { api } from "../../../services/api";
 
 const AddressForm = () => {
-  const { register, setValue, getValues } = useFormContext();
+  const { register, setValue } = useFormContext();
   const [isValidPostalCode, setIsValidPostalCode] = useState(false);
   const [address, setAddress] = useState({
     street: "",
