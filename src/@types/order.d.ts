@@ -1,14 +1,21 @@
-export interface PaymentMethods {
-  paymentMethod: "credit_card" | "debit_card" | "cash";
-}
+import { CartState } from "./cart";
 
-export interface OrderState {
-  postalCode: number;
+export interface OrderDetails {
+  postalCode: string;
   street: string;
   number: number;
-  complement?: string;
+  complement?: string | undefined;
   county: string;
   city: string;
-  uf: string;
-  paymentMethods: PaymentMethods;
+  state: string;
+  paymentMethod: string;
+}
+export interface Order {
+  orderDetails: OrderDetails;
+  cart: CartState;
+  subtotal: number;
+  deliveryFee: number;
+}
+export interface OrderState {
+  order: Order[];
 }
