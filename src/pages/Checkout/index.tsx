@@ -10,32 +10,20 @@ import {
 
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import * as zod from "zod";
-
-const addressFormSchema = zod.object({
-  postalCode: zod
-    .string()
-    .length(8, { message: "Preencha o CEP corretamente" }),
-  number: zod.number(),
-  complement: zod.string(),
-  county: zod.string(),
-  city: zod.string(),
-  state: zod.string(),
-  street: zod.string(),
-  paymentMethod: zod.string().min(1),
-});
-
-type AddressFormData = zod.infer<typeof addressFormSchema>;
+import {
+  addressFormSchema,
+  AddressFormData,
+} from "../../utils/addressFormSchema";
 
 const Checkout = () => {
   const { cartState } = useCart();
   const navigate = useNavigate();
 
-  function handleCheckoutForm(data: any) {
+  function handleCheckoutForm(data: AddressFormData) {
     console.log("submit", data);
   }
 
-  const checkoutForm = useForm({
+  const checkoutForm = useForm<AddressFormData>({
     resolver: zodResolver(addressFormSchema),
   });
 

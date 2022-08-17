@@ -72,6 +72,23 @@ export const Input = styled.input<InputProps>`
     background: ${(props) => props.theme.base_hover};
     cursor: not-allowed;
   }
+
+  &.invalid {
+    border-color: red;
+  }
+`;
+
+export const InputField = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  span {
+    color: red;
+    font-size: 0.75rem;
+    font-family: "Roboto";
+    font-weight: 600;
+    padding-top: 0.25rem;
+  }
 `;
 
 export const InputContainer = styled.div`
