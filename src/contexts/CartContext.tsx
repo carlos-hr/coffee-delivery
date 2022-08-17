@@ -1,10 +1,11 @@
 import { createContext, ReactNode, useReducer } from "react";
+import { CartState } from "../@types/cart";
 import {
   addCartItemAction,
   deleteCartItemAction,
   removeCartItemAction,
 } from "../reducers/cart/actions";
-import { cartReducers, CartState } from "../reducers/cart/reducers";
+import { cartReducers } from "../reducers/cart/reducers";
 
 interface HandleUpdateQuantityArguments {
   data: {

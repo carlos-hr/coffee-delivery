@@ -8,11 +8,10 @@ import logo from "../../assets/logo.svg";
 import mapPin from "../../assets/map-pin.svg";
 import { ShoppingCartSimple } from "phosphor-react";
 import { Link, useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import { CartContext } from "../../contexts/CartContext";
+import { useCart } from "../../hooks/useCart";
 
 const Header = () => {
-  const { cartQuantity } = useContext(CartContext);
+  const { cartQuantity } = useCart();
   const navigate = useNavigate();
 
   return (

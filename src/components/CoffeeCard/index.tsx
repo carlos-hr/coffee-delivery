@@ -1,7 +1,7 @@
 import { Minus, Plus, ShoppingCartSimple } from "phosphor-react";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CartContext } from "../../contexts/CartContext";
+import { useCart } from "../../hooks/useCart";
 import { formatPrice } from "../../utils";
 import { Card, PriceContainer } from "./styled";
 
@@ -18,8 +18,7 @@ interface CoffeeCardProps {
 
 const CoffeeCard = ({ coffee }: CoffeeCardProps) => {
   const { id, name, description, price, image, badges } = coffee;
-  const { cartState, handleAddItem, handleRemoveItem } =
-    useContext(CartContext);
+  const { cartState, handleAddItem, handleRemoveItem } = useCart();
 
   const formatedPrice = formatPrice(price);
   const navigate = useNavigate();
