@@ -19,6 +19,7 @@ interface CartContextData {
   cartState: CartState;
   cartQuantity: number;
   subtotal: number;
+  deliveryFee: number;
   deleteCartItem: (id: number) => void;
   handleAddItem: ({ data }: HandleUpdateQuantityArguments) => void;
   handleRemoveItem: ({ data }: HandleUpdateQuantityArguments) => void;
@@ -31,6 +32,7 @@ interface CartContextProviderProps {
 }
 
 export const CartContextProvider = ({ children }: CartContextProviderProps) => {
+  const deliveryFee = 5;
   const [cartState, dispatch] = useReducer(cartReducers, {
     cart: [],
   });
@@ -54,7 +56,7 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
 
   const subtotal = cartState.cart.reduce((acc, state) => {
     acc += state.quantity * state.price;
-    return acc;
+    return Number(acc.toFixed(2));
   }, 0);
 
   function handleAddItem({ data }: HandleUpdateQuantityArguments) {
@@ -81,6 +83,7 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
         handleAddItem,
         handleRemoveItem,
         subtotal,
+        deliveryFee,
       }}
     >
       {children}

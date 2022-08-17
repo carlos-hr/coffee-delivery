@@ -4,8 +4,7 @@ import OrderDetail from "./OrderDetail";
 import { ConfirmOrderContainer, OrderSummaryContainer } from "./styled";
 
 const OrderSummary = () => {
-  const { cartState, subtotal } = useCart();
-  const deliveryFee = 5;
+  const { cartState, subtotal, deliveryFee } = useCart();
   const total = subtotal + deliveryFee;
 
   return (

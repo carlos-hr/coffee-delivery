@@ -1,12 +1,13 @@
-export enum ActionTypes {
+export enum CartActionTypes {
   addCartItem = "ADD_CART_ITEM",
   deleteCartItem = "DELETE_CART_ITEM",
   removeCartItem = "REMOVE_CART_ITEM",
+  resetCart = "RESET_CART",
 }
 
 export function addCartItemAction(id: number) {
   return {
-    type: ActionTypes.addCartItem,
+    type: CartActionTypes.addCartItem,
     payload: {
       id,
     },
@@ -15,7 +16,7 @@ export function addCartItemAction(id: number) {
 
 export function deleteCartItemAction(id: number) {
   return {
-    type: ActionTypes.deleteCartItem,
+    type: CartActionTypes.deleteCartItem,
     payload: {
       id,
     },
@@ -24,9 +25,15 @@ export function deleteCartItemAction(id: number) {
 
 export function removeCartItemAction(id: number) {
   return {
-    type: ActionTypes.removeCartItem,
+    type: CartActionTypes.removeCartItem,
     payload: {
       id,
     },
+  };
+}
+
+export function resetCartAction() {
+  return {
+    type: CartActionTypes.resetCart,
   };
 }

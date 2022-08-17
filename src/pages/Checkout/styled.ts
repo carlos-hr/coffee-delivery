@@ -8,6 +8,7 @@ export const CheckoutContainer = styled.form`
   font-weight: 700;
   width: 100%;
   padding: 1rem;
+  justify-content: center;
 
   @media (max-width: 768px) {
     flex-direction: column;

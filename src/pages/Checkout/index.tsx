@@ -14,13 +14,24 @@ import {
   addressFormSchema,
   AddressFormData,
 } from "../../utils/addressFormSchema";
+import { useOrder } from "../../hooks/useOrder";
 
 const Checkout = () => {
-  const { cartState } = useCart();
+  const { cartState, subtotal, deliveryFee } = useCart();
+  const { placeOrder } = useOrder();
   const navigate = useNavigate();
 
-  function handleCheckoutForm(data: AddressFormData) {
-    console.log("submit", data);
+  function handleCheckoutForm(orderDetails: AddressFormData) {
+    const { cart } = cartState;
+    const data = {
+      orderDetails,
+      subtotal,
+      deliveryFee,
+      cart: {
+        cart,
+      },
+    };
+    placeOrder(data);
   }
 
   const checkoutForm = useForm<AddressFormData>({

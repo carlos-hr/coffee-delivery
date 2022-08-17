@@ -1,12 +1,12 @@
 import produce from "immer";
 import { CartState, CartItem } from "../../@types/cart";
 import { coffees } from "../../db/coffees";
-import { ActionTypes } from "./actions";
+import { CartActionTypes } from "./actions";
 
 export function cartReducers(state: CartState, action: any) {
-  return produce(state, (draft: any) => {
+  return produce(state, (draft) => {
     switch (action.type) {
-      case ActionTypes.addCartItem: {
+      case CartActionTypes.addCartItem: {
         const { payload } = action;
 
         const coffeeIndex = draft.cart.findIndex(
@@ -25,7 +25,7 @@ export function cartReducers(state: CartState, action: any) {
         }
         break;
       }
-      case ActionTypes.deleteCartItem: {
+      case CartActionTypes.deleteCartItem: {
         const { payload } = action;
         const coffeeIndex = draft.cart.findIndex(
           (coffee: CartItem) => coffee.id === payload.id
@@ -39,7 +39,7 @@ export function cartReducers(state: CartState, action: any) {
         }
         return state;
       }
-      case ActionTypes.removeCartItem: {
+      case CartActionTypes.removeCartItem: {
         const { payload } = action;
 
         const coffeeIndex = draft.cart.findIndex(
@@ -62,6 +62,9 @@ export function cartReducers(state: CartState, action: any) {
           return state;
         }
       }
+      case CartActionTypes.resetCart:
+        draft.cart = [];
+        break;
       default:
         return state;
     }
