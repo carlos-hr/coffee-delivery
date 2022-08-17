@@ -7,9 +7,26 @@ import {
   PaymentMethodsContainer,
   PaymentsTitle,
 } from "./styled";
+import { useFormContext } from "react-hook-form";
+import { useEffect } from "react";
 
 const PaymentMethod = () => {
-  const { paymentMethod, selectPaymentMethod } = useOrder();
+  const { selectedPaymentMethod, selectPaymentMethod } = useOrder();
+  const {
+    register,
+    setValue,
+    formState: { errors },
+    clearErrors,
+  } = useFormContext();
+
+  const { paymentMethod } = errors;
+
+  useEffect(() => {
+    if (selectedPaymentMethod) {
+      setValue("paymentMethod", selectedPaymentMethod);
+      clearErrors("paymentMethod");
+    }
+  }, [clearErrors, selectedPaymentMethod, setValue]);
 
   return (
     <PaymentMethodsContainer>
@@ -26,26 +43,31 @@ const PaymentMethod = () => {
       <ButtonsContainer>
         <PaymentButton
           onClick={() => selectPaymentMethod(credit)}
-          className={paymentMethod === credit ? "selected" : ""}
+          className={selectedPaymentMethod === credit ? "selected" : ""}
+          type="button"
         >
           <CreditCard size={22} />
           CARTÃO DE CRÉDITO
         </PaymentButton>
         <PaymentButton
           onClick={() => selectPaymentMethod(debit)}
-          className={paymentMethod === debit ? "selected" : ""}
+          className={selectedPaymentMethod === debit ? "selected" : ""}
+          type="button"
         >
           <Bank size={22} />
           CARTÃO DE DÉBITO
         </PaymentButton>
         <PaymentButton
           onClick={() => selectPaymentMethod(cash)}
-          className={paymentMethod === cash ? "selected" : ""}
+          className={selectedPaymentMethod === cash ? "selected" : ""}
+          type="button"
         >
           <Money size={22} />
           DINHEIRO
         </PaymentButton>
+        <input type="hidden" {...register("paymentMethod")} />
       </ButtonsContainer>
+      <span>{paymentMethod?.message as string}</span>
     </PaymentMethodsContainer>
   );
 };

@@ -14,6 +14,13 @@ export const PaymentMethodsContainer = styled.div`
   polygon {
     stroke: ${(props) => props.theme.secondary};
   }
+
+  span {
+    color: red;
+    font-size: 0.75rem;
+    font-family: "Roboto";
+    font-weight: 600;
+  }
 `;
 
 export const PaymentsTitle = styled.div`

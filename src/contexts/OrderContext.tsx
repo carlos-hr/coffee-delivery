@@ -5,7 +5,7 @@ interface OrderContextProviderProps {
 }
 
 interface OrderContextData {
-  paymentMethod: string | null;
+  selectedPaymentMethod: string;
   selectPaymentMethod: (method: string) => void;
 }
 
@@ -14,14 +14,17 @@ export const OrderContext = createContext({} as OrderContextData);
 export const OrderContextProvider = ({
   children,
 }: OrderContextProviderProps) => {
-  const [paymentMethod, setPaymentMethod] = useState<string | null>(null);
+  const [selectedPaymentMethod, setSelectedPaymentMethod] =
+    useState<string>("");
 
   function selectPaymentMethod(method: string) {
-    setPaymentMethod(method);
+    setSelectedPaymentMethod(method);
   }
 
   return (
-    <OrderContext.Provider value={{ paymentMethod, selectPaymentMethod }}>
+    <OrderContext.Provider
+      value={{ selectedPaymentMethod, selectPaymentMethod }}
+    >
       {children}
     </OrderContext.Provider>
   );
