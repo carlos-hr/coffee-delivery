@@ -4,6 +4,7 @@ import {
   addCartItemAction,
   deleteCartItemAction,
   removeCartItemAction,
+  resetCartAction,
 } from "../reducers/cart/actions";
 import { cartReducers } from "../reducers/cart/reducers";
 
@@ -21,6 +22,7 @@ interface CartContextData {
   subtotal: number;
   deliveryFee: number;
   deleteCartItem: (id: number) => void;
+  resetCart: () => void;
   handleAddItem: ({ data }: HandleUpdateQuantityArguments) => void;
   handleRemoveItem: ({ data }: HandleUpdateQuantityArguments) => void;
 }
@@ -47,6 +49,10 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
 
   function removeCartItem(id: number) {
     dispatch(removeCartItemAction(id));
+  }
+
+  function resetCart() {
+    dispatch(resetCartAction());
   }
 
   const cartQuantity = cartState.cart.reduce((acc, state) => {
@@ -84,6 +90,7 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
         handleRemoveItem,
         subtotal,
         deliveryFee,
+        resetCart,
       }}
     >
       {children}

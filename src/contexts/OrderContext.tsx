@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useReducer, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Order, OrderState } from "../@types/order";
 import { placeOrderAction } from "../reducers/order/actions";
 import { orderReducer } from "../reducers/order/reducers";
@@ -16,12 +17,13 @@ interface OrderContextData {
 
 export const OrderContext = createContext({} as OrderContextData);
 
-export const OrderContextProvider = ({
-  children,
-}: OrderContextProviderProps) => {
+export const OrderContextProvider = (props: OrderContextProviderProps) => {
+  const { children } = props;
+  const navigate = useNavigate();
   const [orderState, dispatch] = useReducer(orderReducer, {
     order: [],
   });
+
   const [selectedPaymentMethod, setSelectedPaymentMethod] =
     useState<string>("");
 
@@ -31,6 +33,7 @@ export const OrderContextProvider = ({
 
   function placeOrder(data: Order) {
     dispatch(placeOrderAction(data));
+    navigate("order-placed");
   }
 
   return (
