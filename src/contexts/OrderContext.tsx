@@ -22,6 +22,12 @@ export const OrderContextProvider = (props: OrderContextProviderProps) => {
   const navigate = useNavigate();
   const [orderState, dispatch] = useReducer(orderReducer, {
     order: [],
+    currentOrder: {
+      street: "",
+      number: null,
+      paymentMethod: "",
+      hasActiveOrder: false,
+    },
   });
 
   const [selectedPaymentMethod, setSelectedPaymentMethod] =

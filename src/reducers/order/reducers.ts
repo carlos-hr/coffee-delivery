@@ -8,6 +8,12 @@ export function orderReducer(state: OrderState, action: any) {
       case OrderActionTypes.placeOrder:
         const { data } = action.payload;
         draft.order.push(data);
+        draft.currentOrder = {
+          street: data.orderDetails.street,
+          number: data.orderDetails.number,
+          paymentMethod: data.orderDetails.paymentMethod,
+          hasActiveOrder: true,
+        };
         break;
       default:
         return state;
