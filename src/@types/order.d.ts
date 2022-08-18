@@ -16,6 +16,13 @@ export interface Order {
   subtotal: number;
   deliveryFee: number;
 }
+
 export interface OrderState {
   order: Order[];
+  currentOrder: {
+    street: string;
+    number: number | null;
+    paymentMethod: string;
+    hasActiveOrder: boolean;
+  };
 }
