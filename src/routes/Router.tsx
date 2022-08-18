@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Layout from "../layout";
-import { Checkout, Home } from "../pages";
+import { Checkout, Home, OrderPlaced } from "../pages";
 
 const Router = () => {
   return (
@@ -8,6 +8,7 @@ const Router = () => {
       <Route path="/" element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/order-placed" element={<OrderPlaced />} />
       </Route>
     </Routes>
   );
