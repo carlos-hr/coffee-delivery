@@ -14,6 +14,7 @@ Challenge for the rocketseat ignite course that was proposed to develop an appli
  - [x] Using flux architecture and Context API to manage states;
  - [x] Using viacep API to fetch address information from clients;
  - [ ] Save cart and orders in localStorage
+ - [ ] Dark mode
 
 ---
 
