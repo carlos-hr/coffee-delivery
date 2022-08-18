@@ -45,7 +45,7 @@ const Banner = () => {
           </GridItem>
 
           <GridItem>
-            <IconContainer color="secondary_dark">
+            <IconContainer color="secondary">
               <Coffee />
             </IconContainer>
             O café chega fresquinho até você

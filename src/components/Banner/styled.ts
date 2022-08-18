@@ -58,7 +58,7 @@ export const ItemsGrid = styled.div`
 `;
 
 interface IconContainerProps {
-  color: "primary_dark" | "primary" | "base_text" | "secondary_dark";
+  color: "primary_dark" | "primary" | "base_text" | "secondary";
 }
 
 export const IconContainer = styled.div<IconContainerProps>`
@@ -73,8 +73,8 @@ export const IconContainer = styled.div<IconContainerProps>`
         return props.theme.primary_dark;
       case "primary":
         return props.theme.primary;
-      case "secondary_dark":
-        return props.theme.secondary_dark;
+      case "secondary":
+        return props.theme.secondary;
     }
   }};
   display: flex;
