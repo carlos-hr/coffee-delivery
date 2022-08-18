@@ -81,6 +81,7 @@ export const Input = styled.input<InputProps>`
 export const InputField = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   span {
     color: red;

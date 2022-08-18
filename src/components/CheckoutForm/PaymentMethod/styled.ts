@@ -44,7 +44,7 @@ export const ButtonsContainer = styled.div`
   align-items: center;
   gap: 0.75rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 600px) {
     flex-direction: column;
   }
 `;

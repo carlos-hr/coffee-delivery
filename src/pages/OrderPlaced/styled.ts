@@ -6,6 +6,7 @@ export const MainContainer = styled.main`
   gap: 6.375rem;
   justify-content: center;
   align-items: flex-end;
+  padding: 0 1rem;
 
   @media (max-width: 1024px) {
     img {
